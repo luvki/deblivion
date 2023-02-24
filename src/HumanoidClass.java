@@ -1,5 +1,10 @@
-public enum PlayerClass {
-	ACROBAT(		0, 		0, 	0, 	5,
+//HumanoidClass: enum used to create objects storing attribute and skill modifiers needed for creation of player and
+	//non player humanoids
+	//as not all classes are playable the boolean is set accordingly
+
+public enum HumanoidClass {
+	ACROBAT(		true,
+					0, 		0, 	0, 	5,
 					0, 		5, 	0, 	0,
 
 					25, 	0, 		0, 	0,
@@ -8,7 +13,8 @@ public enum PlayerClass {
 					0, 		5, 	25, 	5,
 					0, 		0, 	25, 		25,
 					25),
-	AGENT(			0, 		0, 	0, 	5,
+	AGENT(			true,
+					0, 		0, 	0, 	5,
 					0, 		0, 	5, 	0,
 
 					25, 	0, 		0, 	0,
@@ -17,7 +23,8 @@ public enum PlayerClass {
 					20, 		5, 	25, 	25,
 					0, 		0, 	25, 		25,
 					25),
-	ARCHER(			5, 		0, 	0, 	5,
+	ARCHER(			true,
+					5, 		0, 	0, 	5,
 					0, 		0, 	0, 	0,
 
 					0, 	0, 		0, 	25,
@@ -26,7 +33,8 @@ public enum PlayerClass {
 					0, 		20, 	20, 	0,
 					0, 		0, 	0, 		20,
 					0),
-	ASSASSIN(		0, 		5, 	0, 	0,
+	ASSASSIN(		true,
+					0, 		5, 	0, 	0,
 					5, 		0, 	0, 	0,
 
 					25, 	20, 		0, 	0,
@@ -35,7 +43,8 @@ public enum PlayerClass {
 					0, 		25, 	25, 	5,
 					0, 		0, 	25, 		25,
 					5),
-	BARBARIAN(		5, 		0, 	0, 	0,
+	BARBARIAN(		true,
+					5, 		0, 	0, 	0,
 					5, 		0, 	0, 	0,
 
 					0, 	0, 		0, 	25,
@@ -44,7 +53,8 @@ public enum PlayerClass {
 					0, 		20, 	0, 	0,
 					0, 		0, 	0, 		0,
 					0),
-	BARD(			0, 		5, 	0, 	0,
+	BARD(			true,
+					0, 		5, 	0, 	0,
 					0, 		0, 	5, 	0,
 
 					5, 	20, 	0, 	0,
@@ -53,7 +63,8 @@ public enum PlayerClass {
 					20, 		25, 	5, 	25,
 					0, 		0, 	5, 		5,
 					25),
-	BATTLEMAGE(		5, 		5, 	0, 	0,
+	BATTLEMAGE(		true,
+					5, 		5, 	0, 	0,
 					0, 		0, 	0, 	0,
 
 					0, 	25, 	25, 	0,
@@ -62,7 +73,8 @@ public enum PlayerClass {
 					5, 		0, 	0, 	0,
 					25, 	5, 	0, 		0,
 					0),
-	CRUSADER(		5, 		0, 	5, 	0,
+	CRUSADER(		true,
+					5, 		0, 	5, 	0,
 					0, 		0, 	0, 	0,
 
 					0, 	0, 		0, 	5,
@@ -71,7 +83,8 @@ public enum PlayerClass {
 					0, 		0, 	0, 	0,
 					0, 		20, 	0, 		0,
 					0),
-	HEALER(			0, 		0, 	5, 	0,
+	HEALER(			true,
+					0, 		0, 	5, 	0,
 					0, 		0, 	5, 	0,
 
 					0, 	25, 	25, 	0,
@@ -80,7 +93,8 @@ public enum PlayerClass {
 					25, 		0, 	0, 	20,
 					5, 		25, 	0, 		0,
 					20),
-	KNIGHT(			5, 		0, 	0, 	0,
+	KNIGHT(			true,
+					5, 		0, 	0, 	0,
 					0, 		0, 	5, 	0,
 
 					0, 	0, 		0, 	5,
@@ -89,7 +103,8 @@ public enum PlayerClass {
 					20, 		0, 	0, 	0,
 					0, 		0, 	0, 		0,
 					20),
-	MAGE(			0, 		5, 	5, 	0,
+	MAGE(			true,
+					0, 		5, 	5, 	0,
 					0, 		0, 	0, 	0,
 
 					0, 	25, 	25, 	0,
@@ -98,7 +113,8 @@ public enum PlayerClass {
 					25, 		0, 	0, 	0,
 					25, 	25, 	0, 		0,
 					0),
-	MONK(			0, 		0, 	5, 	5,
+	MONK(			true,
+					0, 		0, 	5, 	5,
 					0, 		0, 	0, 	0,
 
 					25, 	0, 		20, 	0,
@@ -107,7 +123,8 @@ public enum PlayerClass {
 					0, 		5, 	25, 	5,
 					0, 		0, 	25, 		25,
 					5),
-	NIGHTBLADE(		0, 		0, 	5, 	0,
+	NIGHTBLADE(		true,
+					0, 		0, 	5, 	0,
 					5, 		0, 	0, 	0,
 
 					20, 	5, 		25, 	0,
@@ -116,7 +133,8 @@ public enum PlayerClass {
 					5, 		20, 	0, 	0,
 					5, 		25, 	0, 		0,
 					0),
-	PILGRIM(		0, 		0, 	0, 	0,
+	PILGRIM(		true,
+					0, 		0, 	0, 	0,
 					0, 		5, 	5, 	0,
 
 					5, 	0, 		0, 	20,
@@ -125,7 +143,8 @@ public enum PlayerClass {
 					0, 		25, 	5, 	25,
 					0, 		0, 	25, 		5,
 					25),
-	ROGUE(			0, 		0, 	0, 	0,
+	ROGUE(			true,
+					0, 		0, 	0, 	0,
 					5, 		0, 	5, 	0,
 
 					0, 	20, 	0, 	5,
@@ -134,7 +153,8 @@ public enum PlayerClass {
 					20, 		20, 	0, 	20,
 					0, 		0, 	0, 		0,
 					0),
-	SCOUT(			0, 		0, 	0, 	0,
+	SCOUT(			true,
+					0, 		0, 	0, 	0,
 					5, 		5, 	0, 	0,
 
 					20, 	20, 	0, 	25,
@@ -143,7 +163,8 @@ public enum PlayerClass {
 					0, 		20, 	0, 	0,
 					0, 		0, 	0, 		0,
 					0),
-	SORCERER(		0, 		5, 	0, 	0,
+	SORCERER(		true,
+					0, 		5, 	0, 	0,
 					0, 		5, 	0, 	0,
 
 					0, 	25, 	25, 	0,
@@ -152,7 +173,8 @@ public enum PlayerClass {
 					5, 		0, 	0, 	0,
 					25, 	25, 	0, 		0,
 					0),
-	SPELLSWORD(		0, 		0, 	5, 	0,
+	SPELLSWORD(		true,
+					0, 		0, 	5, 	0,
 					0, 		5, 	0, 	0,
 
 					0, 	5, 		25, 	0,
@@ -161,7 +183,8 @@ public enum PlayerClass {
 					25, 		0, 	0, 	0,
 					5, 		25, 	0, 		0,
 					0),
-	THIEF(			0, 		0, 	0, 	5,
+	THIEF(			true,
+					0, 		0, 	0, 	5,
 					5, 		0, 	0, 	0,
 
 					25, 	0, 		0, 	0,
@@ -170,7 +193,8 @@ public enum PlayerClass {
 					0, 		25, 	25, 	25,
 					0, 		0, 	25, 		25,
 					25),
-	WARRIOR(		5, 		0, 	0, 	0,
+	WARRIOR(		true,
+					5, 		0, 	0, 	0,
 					0, 		5, 	0, 	0,
 
 					0, 	0, 		0, 	25,
@@ -179,7 +203,8 @@ public enum PlayerClass {
 					0, 		0, 	0, 	0,
 					0, 		0, 	0, 		0,
 					0),
-	WITCHHUNTER(	0, 		5, 	0, 	5,
+	WITCHHUNTER(	true,
+					0, 		5, 	0, 	5,
 					0, 		0, 	0, 	0,
 
 					0, 	25, 	5, 	0,
@@ -188,7 +213,8 @@ public enum PlayerClass {
 					5, 		0, 	20, 	0,
 					25, 	5, 	20, 		0,
 					0);
-	//attributes
+	private final boolean ISPLAYABLE;
+		//attribute modifiers
 	private final int STRENGTHMODIFIER;
 	private final int INTELLIGENCEMODIFIER;
 	private final int WILLPOWERMODIFIER;
@@ -197,7 +223,7 @@ public enum PlayerClass {
 	private final int ENDURANCEMODIFIER;
 	private final int PERSONALITYMODIFIER;
 	private final int LUCKMODIFIER;
-	//skills
+		//skill modifier
 	private final int ACROBATICSMODIFIER;
 	private final int ALCHEMYMODIFIER;
 	private final int ALTERATIONMODIFIER;
@@ -220,15 +246,17 @@ public enum PlayerClass {
 	private final int SNEAKMODIFIER;
 	private final int SPEECHCRAFTMODIFIER;
 
-	PlayerClass(int STRENGTHMODIFIER, int INTELLIGENCEMODIFIER, int WILLPOWERMODIFIER, int AGILITYMODIFIER,
-				int SPEEDMODIFIER, int ENDURANCEMODIFIER, int PERSONALITYMODIFIER, int LUCKMODIFIER,
+	HumanoidClass(boolean ISPLAYABLE,
+				  int STRENGTHMODIFIER, int INTELLIGENCEMODIFIER, int WILLPOWERMODIFIER, int AGILITYMODIFIER,
+				  int SPEEDMODIFIER, int ENDURANCEMODIFIER, int PERSONALITYMODIFIER, int LUCKMODIFIER,
 
-				int ACROBATICSMODIFIER, int ALCHEMYMODIFIER, int ALTERATIONMODIFIER, int ARMORERMODIFIER,
-				int ATHLETICSMODIFIER, int BLADEMODIFIER, int BLOCKMODIFIER, int BLUNTMODIFIER,
-				int CONJURATIONMODIFIER, int DESTRUCTIONMODIFIER, int HANDTOHANDMODIFIER, int HEAVYARMORMODIFIER,
-				int ILLUSIONMODIFIER, int LIGHTARMORMODIFIER, int MARKSMANMODIFIER, int MERCANTILEMODIFIER,
-				int MYSTICISMMODIFIER, int RESTORATIONMODIFIER, int SECURITYMODIFIER, int SNEAKMODIFIER,
-				int SPEECHCRAFTMODIFIER) {
+				  int ACROBATICSMODIFIER, int ALCHEMYMODIFIER, int ALTERATIONMODIFIER, int ARMORERMODIFIER,
+				  int ATHLETICSMODIFIER, int BLADEMODIFIER, int BLOCKMODIFIER, int BLUNTMODIFIER,
+				  int CONJURATIONMODIFIER, int DESTRUCTIONMODIFIER, int HANDTOHANDMODIFIER, int HEAVYARMORMODIFIER,
+				  int ILLUSIONMODIFIER, int LIGHTARMORMODIFIER, int MARKSMANMODIFIER, int MERCANTILEMODIFIER,
+				  int MYSTICISMMODIFIER, int RESTORATIONMODIFIER, int SECURITYMODIFIER, int SNEAKMODIFIER,
+				  int SPEECHCRAFTMODIFIER) {
+		this.ISPLAYABLE = ISPLAYABLE;
 		this.STRENGTHMODIFIER = STRENGTHMODIFIER;
 		this.INTELLIGENCEMODIFIER = INTELLIGENCEMODIFIER;
 		this.WILLPOWERMODIFIER = WILLPOWERMODIFIER;
@@ -260,6 +288,10 @@ public enum PlayerClass {
 		this.SPEECHCRAFTMODIFIER = SPEECHCRAFTMODIFIER;
 	}
 
+		//getter
+	public boolean getISPLAYABLE(){
+		return ISPLAYABLE;
+	}
 	public int getSTRENGTHMODIFIER() {
 		return STRENGTHMODIFIER;
 	}

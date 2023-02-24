@@ -16,7 +16,7 @@ public class Main {
 		invTest();
 	}
 	static private void invTest(){
-		inventory = new Container("TEST INVENTORY", 300);
+		inventory = new Container("TEST INVENTORY");
 		Gold gold = new Gold();
 		inventory.addItem(gold);
 		printInvContent();
@@ -47,7 +47,7 @@ public class Main {
 				System.out.println(genUnderscoreString(4 - (new String("" + entry.getAmount()).length())) + entry.getAmount());
 			}
 		}
-		System.out.println("Encumbrance: " + inventory.getCurrentEncumbrance() + "/" + inventory.getMaxEncumbrance());
+		System.out.println("Encumbrance: " + inventory.getEncumbrance());
 		System.out.println("");
 		System.out.println("");
 		System.out.println("");

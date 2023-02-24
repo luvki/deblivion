@@ -11,8 +11,9 @@ public class Humanoid extends Entity {
 	private int magicka;
 	private int maxFatigue;
 	private int fatigue;
+	private int maxEncumbrance;
 	private Container inventory;
-	public Humanoid(String name, Race race, PlayerClass classSpecialization, String birthsign, Item[] items){
+	public Humanoid(String name, HumanoidRace race, HumanoidClass classSpecialization, String birthsign, Item[] items){
 		super(name, 2 * (race.getBASEENDURANCE()));
 
 		this.RACENAME = race.name();
@@ -95,7 +96,9 @@ public class Humanoid extends Entity {
 		setMaxFatigue();
 		this.fatigue = this.maxFatigue;
 
-		inventory = new Container(name + "'s inventory", 5 * attributes.get("strength"));
+		this.maxEncumbrance = 5 * attributes.get("strength");
+
+		inventory = new Container(name + "'s inventory");
 
 		for(Item item : items){
 			inventory.addItem(item);
