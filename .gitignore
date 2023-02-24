@@ -1,0 +1,6 @@
+#IDE specific files
+/.idea/
+/adventure.iml
+
+#compiled .class files
+/out/
