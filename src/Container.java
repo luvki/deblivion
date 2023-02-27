@@ -84,7 +84,7 @@ public class Container extends Entity {
 	//addItemXTimes: adds given item x times returns number of items added
 	public int addItemXTimes(Item item, int amountToAdd) {
 		int amountAdded = 0;
-		//as long as there are items to add and addItem() returns true
+		//as long as there are items to add
 		while(amountAdded < amountToAdd){
 			//try adding item
 			if(addItem(item)){
@@ -97,41 +97,55 @@ public class Container extends Entity {
 		}
 		return amountAdded;
 	}
-	//TODO: continue writing comments
+	//removeItemByName: removes item from category ArrayList based on given name
 	public boolean removeItemByName(String name){
+		//cycle through category ArrayLists
 		for(String categoryName : categoryListsHashMap.keySet()) {
+			//cycle through ItemListEntries
 			for(ItemListEntry entry : categoryListsHashMap.get(categoryName)){
+				//if names match
 				if(entry.getItem().getName().equals(name)){
+					//decrease amount
 					entry.decreaseAmountByOne();
+					//if amount equals zero
 					if(entry.getAmount() == 0){
+						//delete ArrayList entry
 						categoryListsHashMap.get(categoryName).remove(entry);
 					}
+					//recalculate encumbrance
 					setEncumbrance();
+					//success returns true
 					return true;
 				}
 			}
 		}
+		//if no item with matching name is found return false
 		return false;
 	}
+	//removeItemXTimesByName: removes Items from category ArrayList based on given name X times
 	public int removeItemXTimesByName(String name, int amountToRemove){
 		int amountRemoved = 0;
+		//as long as there are items to remove
 		while(amountRemoved < amountToRemove){
+			//try removing item
 			if(removeItemByName(name)){
+				//if item was added increase counter
 				amountRemoved++;
 			}else{
+				//if item couldn't be removed: return amount of items removed to stop infinite loops
 				return amountRemoved;
 			}
 		}
 		return amountRemoved;
 	}
-		//setEncumbrance: sums up all item weights in inventory and sets currentEncumbrance
+	//setEncumbrance: sums up all item weights in inventory and sets currentEncumbrance
 	private void setEncumbrance(){
 		int encumbrance = 0;
-			//cycles through ArrayLists in categoryListsHashMap
+		//cycles through ArrayLists in categoryListsHashMap
 		for(String categoryName : categoryListsHashMap.keySet()) {
-				//cycles through ItemListEntries in ArrayList
+			//cycles through ItemListEntries in ArrayList
 			for (ItemListEntry entry : categoryListsHashMap.get(categoryName)) {
-					//adds weight of item multiplied by amount of items in ItemListEntry to currentEncumbrance
+				//adds weight of item multiplied by amount of items in ItemListEntry to currentEncumbrance
 				encumbrance += (entry.getItem().getWeight() * entry.getAmount());
 			}
 		}

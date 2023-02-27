@@ -1,3 +1,4 @@
+//Entity: base object. parent of every object in the game world
 abstract class Entity {
 	private String name;
 	private int maxHitPoints;
@@ -16,15 +17,17 @@ abstract class Entity {
 	public int getHitPoints(){
 		return hitPoints;
 	}
+	//healForXPoints: heals for X points, if this would exceed maxHitPoints calls healFully
 	public void healForXPoints(int amountToHeal){
 		if(amountToHeal > 0){
 			if(amountToHeal + hitPoints > maxHitPoints){
-				hitPoints = maxHitPoints;
+				healFully();
 			}else{
 				hitPoints += amountToHeal;
 			}
 		}
 	}
+	//healFully: sets hitPoints to maxHitPoints
 	public void healFully(){
 		hitPoints = maxHitPoints;
 	}
