@@ -92,8 +92,8 @@ public class Humanoid extends Entity {
 		resistances.put("resist disease", 	race.getDISEASERESISTANCE());
 
 		setMaxMagicka();
-		this.magicka = this.maxMagicka;
 		setMaxFatigue();
+		this.magicka = this.maxMagicka;
 		this.fatigue = this.maxFatigue;
 
 		this.maxEncumbrance = 5 * attributes.get("strength");

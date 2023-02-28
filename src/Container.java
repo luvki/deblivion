@@ -39,10 +39,46 @@ public class Container extends Entity {
 					(entry1, entry2) -> entry1.getItem().getName().compareTo(entry2.getItem().getName()));
 		}
 	}
-
-	//TODO: remove getCategoryListsHashmap --- only for testing purposes
-	public LinkedHashMap<String, List<ItemListEntry>> getCategoryListsHashMap(){
-		return categoryListsHashMap;
+	//getContainerContentsStringArrayList: returns ArrayList containing container contents (item amounts, names and
+	// 																						stats)
+	//<<<<<<<<<<<<<<<container name>>>>>>>>>>>>>>	(container name is centered in 43 char long String)
+	//amnt|----category name---|-val-|wgt|mod|-♥-	(columns mod and health aren't used depending on category)
+	//XXXX|item name...........|XXXXX|XXX|XXX|XXX
+	//encumbrance									(correct display of encumbrance, current defence and gold is
+	// 												 handled on method call)
+	//TODO: FINISH THIS, THEN ADD MODIFIER ATTRIBUTE TO ITEM CLASS THEN STREAMLINE THIS
+	public ArrayList getContainerContentsStringArrayList(){
+		//ArrayList containing String Arrays filled with item entries
+		ArrayList<String> containerContents = new ArrayList<String>();
+		containerContents.add(StringTools.center(this.getName(), 43, '<', '>'));
+		//cycle through ArrayLists
+		for(String categoryName : categoryListsHashMap.keySet()){
+			if(categoryListsHashMap.get(categoryName).size() > 0) {
+				containerContents.add("amnt|" + StringTools.center(categoryName, 20, '-') +
+										"|-val-|wgt|mod|-♥-");
+				switch (categoryName) {
+					case "weapons":
+					case "apparel":
+					case "apparatuses":
+					case "potions":
+					case "ingredients":
+					case "books":
+					case "keys":
+					case "stones":
+					case "misc":
+					case "gold":
+						for(ItemListEntry itemEntry:categoryListsHashMap.get(categoryName)){
+							containerContents.add(StringTools.alignRight("" + itemEntry.getAmount(), 4) +
+									"|" + StringTools.alignLeft("" + itemEntry.getItem().getName(), 20, '.') +
+									"|" + StringTools.alignRight("" + itemEntry.getItem().getValue(), 5, '.') +
+									"|" + StringTools.alignRight("" + itemEntry.getItem().getWeight(), 3, '.') +
+									"|" + "   |   ");
+						}
+						break;
+				}
+			}
+		}
+		return containerContents;
 	}
 	//getCurrentEncumbrance: used to show currentEncumbrance
 	public int getEncumbrance(){
@@ -52,13 +88,13 @@ public class Container extends Entity {
 		//returns true or false depending on success
 	public boolean addItem(Item item) {
 		//cycle through category ArrayLists
-		for (String categoryName : categoryListsHashMap.keySet()) {
+		for(String categoryName : categoryListsHashMap.keySet()) {
 			//if ArrayList matches item category
-			if (item.getCategory().equals(categoryName)) {
+			if(item.getCategory().equals(categoryName)) {
 				//cycle through ItemListEntries
-				for (ItemListEntry entry : categoryListsHashMap.get(categoryName)) {
+				for(ItemListEntry entry : categoryListsHashMap.get(categoryName)) {
 					//if item names match and amount ItemListEntry is < 999
-					if (entry.getItem().getName().equals(item.getName()) && entry.getAmount() < 999) {
+					if(entry.getItem().getName().equals(item.getName()) && entry.getAmount() < 999) {
 						//get index of matching ItemListEntry
 						int index = categoryListsHashMap.get(categoryName).indexOf(entry);
 						//and increase amount by one

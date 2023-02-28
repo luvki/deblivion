@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,22 +9,38 @@ public class Main {
 	static private Container inventory;
 	public static void main(String[] args) {
 		items = new Item[6];
-		items[0] = new Item("Iron Battleaaaaaaaaaaaaaaaaaaaaaaaaa", "Weapons", 20, 15);
-		items[1] = new Item("Custom Wand", "Weapons", 10, 300);
-		items[2] = new Item("Human Toe", "Ingredients", 1, 10);
-		items[3] = new Item("Crab Meat", "Ingredients", 1, 2);
-		items[4] = new Item("Crab Meat", "Ingredients", 1, 2);
-		items[5] = new Item("The Bible", "Books", 3, 100);
+		items[0] = new Item("Iron Battleaaaaaaaaaaaaaaaaaaaaaaaaa", "weapons", 20, 15);
+		items[1] = new Item("Custom Wand", "weapons", 10, 300);
+		items[2] = new Item("Human Toe", "ingredients", 1, 10);
+		items[3] = new Item("Crab Meat", "ingredients", 1, 2);
+		items[4] = new Item("Crab Meat", "ingredients", 1, 2);
+		items[5] = new Item("The Bible", "books", 3, 100);
 		invTest();
+
+		//String[] test = {"asd"};
+
+		//System.out.println(StringTools.center("my String is too long", 10));
+
+
 	}
 	static private void invTest(){
 		inventory = new Container("TEST INVENTORY");
 		Gold gold = new Gold();
 		inventory.addItem(gold);
-		printInvContent();
+		for(Item item: items){
+			inventory.addItemXTimes(item, 5);
+		}
+		ArrayList<String[]> invcontents = inventory.getContainerContentsStringArrayList();
+
+		printInventoryContents(inventory.getContainerContentsStringArrayList());
+	}
+	static private void printInventoryContents(ArrayList<String> contents){
+		for(String invEntryString:contents){
+			System.out.println(invEntryString);
+		}
 	}
 
-	static private void printInvContent(){
+	/*static private void printInvContent(){
 		LinkedHashMap<String, List<ItemListEntry>> invContents = inventory.getCategoryListsHashMap();
 		String itemNameString = "";
 		String minusesToAdd = "";
@@ -59,5 +77,5 @@ public class Main {
 			string += "_";
 		}
 		return string;
-	}
+	}*/
 }
