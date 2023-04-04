@@ -1,5 +1,7 @@
-//Entity: base object. parent of every object in the game world
-abstract class Entity {
+package game;
+
+//game.Entity: base object. parent of every object in the game world
+public abstract class Entity {
 	private String name;
 	private int maxHitPoints;
 	private int hitPoints;

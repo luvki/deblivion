@@ -1,4 +1,6 @@
-//HumanoidRace: enum used to create objects storing attribute, skill and resistance modifiers needed for creation of
+package humanoids;
+
+//humanoids.HumanoidRace: enum used to create objects storing attribute, skill and resistance modifiers needed for creation of
 // 	player and non player humanoids
 //	dremora aren't playable, but as they're the only race not playable no boolean is needed and the race name saved as
 //	the enum constant name is used to check

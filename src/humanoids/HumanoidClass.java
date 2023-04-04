@@ -1,4 +1,4 @@
-//HumanoidClass: enum used to create objects storing attribute and skill modifiers needed for creation of player and
+package humanoids;//humanoids.HumanoidClass: enum used to create objects storing attribute and skill modifiers needed for creation of player and
 	//non player humanoids
 	//as not all classes are playable the boolean is set accordingly
 

@@ -1,3 +1,9 @@
+package humanoids;
+
+import game.Container;
+import game.Entity;
+import itemTypes.Item;
+
 import java.util.LinkedHashMap;
 
 public class Humanoid extends Entity {

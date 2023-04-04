@@ -1,4 +1,6 @@
-//StringTools: collection of useful methods for string manipulation
+package toolbox;
+
+//toolbox.StringTools: collection of useful methods for string manipulation
 public class StringTools {
 	//center: returns String of specified length with the given string centered
 	public static String center(String string, int length){

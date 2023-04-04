@@ -1,4 +1,8 @@
-//ItemListEntry: list entry object containing an item and the amount of that item stored
+package game;
+
+import itemTypes.Item;
+
+//game.ItemListEntry: list entry object containing an item and the amount of that item stored
 	//used in container management
 public class ItemListEntry {
 	//item: item held in list entry
